@@ -66,10 +66,5 @@ If you are using Apache,you can skip this step,because `.htaccess` is ready for 
 
 If you are using Nginx,please write these rewrite rules in your Nginx config file
 ```
-if ($uri !~ "^/public/"){
-	set $rule_0 1$rule_0;
-}
-if ($rule_0 = "1"){
 	rewrite ^/(.*)$ /public/$1 last;
-}
 ```
