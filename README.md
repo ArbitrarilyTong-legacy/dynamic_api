@@ -42,6 +42,34 @@ Please run these commands in MySQL console
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+CREATE TABLE IF NOT EXISTS configs (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  name longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  value longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+INSERT INTO configs (id, name, value) VALUES
+  (1, 'donate_url', 'https://get.pixelexperience.org/donate/'),
+  (2, 'website_url', 'https://get.pixelexperience.org/'),
+  (3, 'news_url', 'https://t.me/PixelExperience');
+
+CREATE TABLE IF NOT EXISTS doctrine_migration_versions (
+  version varchar(191) COLLATE utf8_unicode_ci NOT NULL,
+  executed_at datetime DEFAULT NULL,
+  execution_time int(11) DEFAULT NULL,
+  PRIMARY KEY (version)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+INSERT INTO doctrine_migration_versions (version, executed_at, execution_time) VALUES
+  ('DoctrineMigrations\\Version20230520062350', '2023-05-20 17:00:51', 108),
+  ('DoctrineMigrations\\Version20230520083612', '2023-05-20 17:10:48', 92),
+  ('DoctrineMigrations\\Version20230520083839', '2023-05-20 17:20:58', 105),
+  ('DoctrineMigrations\\Version20230520092412', '2023-05-20 17:24:25', 28),
+  ('DoctrineMigrations\\Version20230520092715', '2023-05-20 17:29:03', 75),
+  ('DoctrineMigrations\\Version20230520093037', '2023-05-20 17:31:08', 83),
+  ('DoctrineMigrations\\Version20230520093420', '2023-05-20 17:34:25', 126);
+
 CREATE TABLE IF NOT EXISTS ota (
   id int(11) NOT NULL AUTO_INCREMENT,
   name1 longtext COLLATE utf8mb4_unicode_ci NOT NULL,
