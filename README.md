@@ -7,10 +7,14 @@ Use for OTA Updates checking
 composer install —no-dev
 ```
 
-2. Create a file named `.env`
+2. Allow PHP functions
+You need to allow `putenv`
+
+3. Create a file named `.env`
 ```
 ###> symfony/framework-bundle ###
-APP_ENV=prod
+#If your symfony didnt load normal you can change APP_ENV to dev,then you can get more detailed error log
+APP_ENV=prod 
 APP_SECRET=
 ###< symfony/framework-bundle ###
 
@@ -23,7 +27,7 @@ APP_SECRET=
 
 You can change the MySQL version in .env,please visit [Symfony document](https://symfony.com/doc/current/doctrine.html) to learn more
 
-3. Create a MySQL database and use MySQL commands to initialize the database
+4. Create a MySQL database and use MySQL commands to initialize the database
 Please run these commands in MySQL console
 
 ```sql
@@ -61,7 +65,7 @@ INSERT INTO ota (id, name1, name2, filename, size, url, version, filehash, maint
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
 ```
 
-4. Setting up rewrite rules
+5. Setting up rewrite rules
 If you are using Apache,you can skip this step,because `.htaccess` is ready for you
 
 If you are using Nginx,please write these rewrite rules in your Nginx config file
