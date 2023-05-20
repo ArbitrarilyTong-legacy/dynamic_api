@@ -66,5 +66,8 @@ If you are using Apache,you can skip this step,because `.htaccess` is ready for 
 
 If you are using Nginx,please write these rewrite rules in your Nginx config file
 ```
-	rewrite ^/(.*)$ /public/$1 last;
+	location / {
+        # try to serve file directly, fallback to index.php
+        try_files $uri /index.php$is_args$args;
+    }
 ```
