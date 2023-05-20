@@ -21,7 +21,7 @@ APP_SECRET=
 ###< doctrine/doctrine-bundle ###
 ```
 
-You can change the database software version in .env
+You can change the MySQL version in .env,please visit [Symfony document](https://symfony.com/doc/current/doctrine.html) to learn more
 
 3. Create a MySQL database and use MySQL commands to initialize the database
 Please run these commands in MySQL console
